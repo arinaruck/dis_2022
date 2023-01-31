@@ -49,7 +49,7 @@ def ex1_load_graph():
 
     edge_list_df.drop(['group_source','group_target','source','target'],axis=1,inplace=True)
 
-    if float(nx.__version__)<2:
+    if float(nx.__version__.split('.')[0])<2:
       return nx.from_pandas_dataframe(edge_list_df,'name_source','name_target')
     else:
       return nx.from_pandas_edgelist(edge_list_df, 'name_source', 'name_target')
